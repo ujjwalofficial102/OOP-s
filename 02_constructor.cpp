@@ -23,10 +23,20 @@ class Customer{
     // Inline Constructor
     inline Customer(string a, int bal) : name(a), balance(bal){}
 
+    // Copy Constructor (not needed as default is already present)
+    Customer(Customer &B){
+        name = B.name;
+        account_number = B.account_number;
+        balance = B.balance;
+    }
+
+    Customer(string a){
+        name = a;
+    }
+
     void display(){
         cout << name << " " << account_number << " " << balance << endl;
     }
-
 };
 
 int main(){
@@ -38,4 +48,13 @@ int main(){
     
     Customer A3("Loki", 500);
     A3.display();
+
+    Customer A4("Thor");
+    A4.display();
+    
+    Customer A5(A2);
+    A5.display();
+
+    Customer A6 = A1;
+    A6.display();
 }
